@@ -24,8 +24,7 @@ LEFT JOIN country cty on cct.country_id = cty.country_id
 LEFT JOIN (
 		SELECT f.campaign_placement_id, f.flight_name, f.start_date, f.end_date, fa.ad_id, fa.weight
 		FROM flight f 
-		JOIN flight_ad fa 
-		ON f.flight_id=fa.flight_id
+		JOIN flight_ad fa on f.flight_id=fa.flight_id
 		WHERE f.status='Active' and fa.status='Active'
 	) f 
 ON cp.campaign_placement_id = f.campaign_placement_id and a.ad_id=f.ad_id
