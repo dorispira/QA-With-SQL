@@ -1,14 +1,14 @@
-SELECT DISTINCT cp.campaign_id as "Campaign ID"
-, p.package_name as "Package Name"
-, cp.campaign_placement_name as "Placement Name"
-, a.ad_name as "Ad Name", mt.metro_name as DMA
-, pc.postal_code_name as "Zip Codes"
-, s.state_name as States,cty.country_name as "Country"
-, cp.is_custom_ad_scheduling_enabled as "Is Custom Ad Scheduling Enabled?"
-, f.flight_name as "Ad Scheduling Evenly Weighted?"
-, f.start_date "Ad Scheduling Start Date"
-, f.end_date as "Ad Scheduling End Date"
-, f.weight as "Ad Weight"
+SELECT DISTINCT cp.campaign_id as "Campaign ID", 
+		p.package_name as "Package Name", 
+		cp.campaign_placement_name as "Placement Name", 
+		a.ad_name as "Ad Name", mt.metro_name as DMA, 
+		pc.postal_code_name as "Zip Codes", 
+		s.state_name as States,cty.country_name as "Country", 
+		cp.is_custom_ad_scheduling_enabled as "Is Custom Ad Scheduling Enabled?", 
+		f.flight_name as "Ad Scheduling Evenly Weighted?", 
+		f.start_date "Ad Scheduling Start Date", 
+		f.end_date as "Ad Scheduling End Date", 
+		f.weight as "Ad Weight"
 FROM campaign_placement cp 
 JOIN promoted_ad pa on cp.campaign_placement_id = pa.campaign_placement_id
 JOIN ad a on pa.ad_id = a.ad_id
